@@ -50,11 +50,11 @@ function Pricing() {
 
             <motion.a href={MESSENGER_LINK} target="_blank" rel="noopener noreferrer"
               whileHover={{ scale: 1.03 }} whileTap={{ scale: 0.98 }}
-              className="flex items-center justify-center gap-3 w-full bg-[#F59E0B] hover:bg-[#D97706] text-white font-montserrat font-bold text-lg py-4 rounded-xl text-center transition-all duration-200 shadow-lg shadow-[#F59E0B]/30 mb-3">
-              <svg className="w-6 h-6" viewBox="0 0 24 24" fill="currentColor">
+              className="flex items-center justify-center gap-2 w-full bg-[#F59E0B] hover:bg-[#D97706] text-white font-montserrat font-bold text-sm sm:text-base md:text-lg py-4 rounded-xl text-center transition-all duration-200 shadow-lg shadow-[#F59E0B]/30 mb-3">
+              <svg className="w-5 h-5 flex-shrink-0" viewBox="0 0 24 24" fill="currentColor">
                 <path d="M12 2C6.477 2 2 6.145 2 11.243c0 2.908 1.438 5.504 3.688 7.2V22l3.374-1.853c.9.25 1.854.384 2.938.384 5.523 0 10-4.145 10-9.243S17.523 2 12 2zm1.007 12.453l-2.548-2.72-4.97 2.72 5.473-5.808 2.61 2.72 4.908-2.72-5.473 5.808z"/>
               </svg>
-              Đặt Hàng Ngay - Chỉ 149.000đ
+              <span>Đặt Hàng Ngay - Chỉ 149.000đ</span>
             </motion.a>
 
             <motion.a href={FACEBOOK_LINK} target="_blank" rel="noopener noreferrer" whileHover={{ scale: 1.02 }}
