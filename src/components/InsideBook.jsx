@@ -11,7 +11,6 @@ function InsideBook() {
   const ref = useRef(null)
   const isInView = useInView(ref, { once: true, amount: 0.1 })
 
-  // Xử lý play/pause audio thật
   const togglePlay = () => {
     if (!audioRef.current) return
     if (isPlaying) {
@@ -22,11 +21,9 @@ function InsideBook() {
     setIsPlaying(!isPlaying)
   }
 
-  // Cập nhật progress bar theo thời gian thật
   useEffect(() => {
     const audio = audioRef.current
     if (!audio) return
-
     const handleTimeUpdate = () => {
       const pct = (audio.currentTime / audio.duration) * 100
       setProgress(isNaN(pct) ? 0 : pct)
@@ -34,19 +31,10 @@ function InsideBook() {
       const secs = Math.floor(audio.currentTime % 60).toString().padStart(2, '0')
       setCurrentTime(`${mins}:${secs}`)
     }
-
-    const handleEnded = () => {
-      setIsPlaying(false)
-      setProgress(0)
-      setCurrentTime('0:00')
-    }
-
+    const handleEnded = () => { setIsPlaying(false); setProgress(0); setCurrentTime('0:00') }
     audio.addEventListener('timeupdate', handleTimeUpdate)
     audio.addEventListener('ended', handleEnded)
-    return () => {
-      audio.removeEventListener('timeupdate', handleTimeUpdate)
-      audio.removeEventListener('ended', handleEnded)
-    }
+    return () => { audio.removeEventListener('timeupdate', handleTimeUpdate); audio.removeEventListener('ended', handleEnded) }
   }, [])
 
   return (
@@ -58,6 +46,7 @@ function InsideBook() {
         </motion.div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+
           {/* Cột trái - Trang mẫu sách */}
           <motion.div initial={{ opacity: 0, x: -40 }} animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -40 }} transition={{ duration: 0.6, delay: 0.2 }}>
             <div className="bg-white rounded-2xl p-6 border border-[#2D6A4F]/10 shadow-sm">
@@ -70,23 +59,38 @@ function InsideBook() {
                   <p className="text-[#475569] text-xs">200 trang + 200 audio</p>
                 </div>
               </div>
+
               <div className="bg-[#F6FAF7] rounded-xl p-4 border border-[#2D6A4F]/10">
-                <p className="text-[#2D6A4F] text-xs font-bold mb-2">TRANG MẪU — Bài 11</p>
-                <p className="text-[#1E293B] text-sm leading-relaxed mb-3">
-                  <em>"Am Morgen hilft Clara ihrem Vater im Garten."</em>
+                <p className="text-[#2D6A4F] text-xs font-bold mb-3">TRANG MẪU — Ngày 11</p>
+
+                {/* Đoạn văn tiếng Đức */}
+                <p className="text-[#1E293B] text-sm leading-relaxed mb-2 italic">
+                  "Am Morgen hilft Clara ihrem Vater im Garten. Sie sammelt kleine Äste ein und legt sie ordentlich zur Seite. Der Vater erklärt ruhig, was er tut. Clara hört aufmerksam zu und stellt Fragen."
                 </p>
-                <p className="text-[#475569] text-xs italic mb-3">
-                  (Vào buổi sáng, Clara giúp bố làm vườn.)
+
+                {/* Dịch tiếng Việt */}
+                <p className="text-[#475569] text-xs leading-relaxed mb-4">
+                  Vào buổi sáng, Clara giúp bố trong vườn. Em nhặt những cành cây nhỏ và xếp gọn sang một bên. Bố nhẹ nhàng giải thích công việc mình đang làm. Clara chăm chú lắng nghe và đặt câu hỏi.
                 </p>
-                <div className="border-t border-[#2D6A4F]/10 pt-3 grid grid-cols-2 gap-2">
-                  <div className="bg-white rounded-lg p-2 border border-[#2D6A4F]/10">
+
+                {/* 2 từ nổi bật */}
+                <div className="grid grid-cols-2 gap-2 mb-4">
+                  <div className="bg-white rounded-lg p-2.5 border border-[#2D6A4F]/10">
                     <p className="text-[#2D6A4F] text-xs font-bold">der Garten</p>
-                    <p className="text-[#475569] text-xs">khu vườn</p>
+                    <p className="text-[#475569] text-xs italic mb-0.5">ga-ten</p>
+                    <p className="text-[#1E293B] text-xs">khu vườn</p>
                   </div>
-                  <div className="bg-white rounded-lg p-2 border border-[#2D6A4F]/10">
-                    <p className="text-[#2D6A4F] text-xs font-bold">der Morgen</p>
-                    <p className="text-[#475569] text-xs">buổi sáng</p>
+                  <div className="bg-white rounded-lg p-2.5 border border-[#2D6A4F]/10">
+                    <p className="text-[#2D6A4F] text-xs font-bold">die Äste</p>
+                    <p className="text-[#475569] text-xs italic mb-0.5">é-stơ</p>
+                    <p className="text-[#1E293B] text-xs">cành cây</p>
                   </div>
+                </div>
+
+                {/* Câu kết */}
+                <div className="border-t border-[#2D6A4F]/10 pt-3">
+                  <p className="text-[#2D6A4F] text-xs font-bold italic">"Gemeinsames Helfen verbindet."</p>
+                  <p className="text-[#475569] text-xs">Cùng nhau giúp đỡ tạo sự gắn kết.</p>
                 </div>
               </div>
             </div>
@@ -96,11 +100,10 @@ function InsideBook() {
           <motion.div initial={{ opacity: 0, x: 40 }} animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: 40 }} transition={{ duration: 0.6, delay: 0.3 }}>
             <div className="bg-white rounded-2xl p-8 border border-[#2D6A4F]/10 shadow-sm">
               <h3 className="font-montserrat font-bold text-[#1E293B] mb-1">
-                🎧 Nghe thử: Câu chuyện "Buổi sáng, Clara giúp bố làm vườn"
+                🎧 Nghe thử: "Buổi sáng, Clara giúp bố làm vườn"
               </h3>
               <p className="text-[#475569] text-sm mb-6">Giọng đọc chuẩn bản xứ, rõ ràng, dễ nghe</p>
 
-              {/* Audio element ẩn */}
               <audio ref={audioRef} src="/5phut-page/demo-audio.mp3" preload="metadata" />
 
               {/* Soundwave animation */}
@@ -113,15 +116,13 @@ function InsideBook() {
                 ))}
               </div>
 
-              {/* Progress bar thật */}
+              {/* Progress bar */}
               <div className="w-full h-1.5 bg-[#F6FAF7] rounded-full mb-2 cursor-pointer"
                 onClick={(e) => {
                   if (!audioRef.current) return
                   const rect = e.currentTarget.getBoundingClientRect()
-                  const pct = (e.clientX - rect.left) / rect.width
-                  audioRef.current.currentTime = pct * audioRef.current.duration
-                }}
-              >
+                  audioRef.current.currentTime = ((e.clientX - rect.left) / rect.width) * audioRef.current.duration
+                }}>
                 <div className="h-full bg-[#2D6A4F] rounded-full transition-all duration-100" style={{ width: `${progress}%` }} />
               </div>
 
@@ -135,12 +136,10 @@ function InsideBook() {
                 <span>{isPlaying ? '⏸' : '▶'}</span>
                 {isPlaying ? 'Đang phát...' : 'Nghe Thử Ngay'}
               </button>
-
-              <p className="text-center text-[#475569]/60 text-xs mt-3">
-                * Đây là 1 trong 200 audio có trong combo sách
-              </p>
+              <p className="text-center text-[#475569]/60 text-xs mt-3">* Đây là 1 trong 200 audio có trong combo sách</p>
             </div>
           </motion.div>
+
         </div>
       </div>
     </section>
