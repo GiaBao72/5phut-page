@@ -34,9 +34,9 @@ function Pricing() {
             <h3 className="font-montserrat font-extrabold text-2xl text-[#1E293B] mb-1">Combo Chinh Phục Tiếng Đức</h3>
             <p className="text-[#475569] text-sm mb-6">Tiết kiệm tối đa thời gian &amp; chi phí học tập</p>
 
-            <div className="flex items-baseline gap-3 mb-6">
-              <span className="text-red-400 line-through text-lg">200.000đ</span>
-              <span className="font-montserrat font-extrabold text-5xl text-[#F59E0B]">149.000đ</span>
+            <div className="flex items-baseline gap-2 flex-wrap mb-6">
+              <span className="text-red-400 line-through text-base">200.000đ</span>
+              <span className="font-montserrat font-extrabold text-3xl sm:text-4xl lg:text-5xl text-[#F59E0B]">149.000đ</span>
             </div>
 
             <div className="space-y-3 mb-8">
