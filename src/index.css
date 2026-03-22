@@ -1,0 +1,29 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Font mặc định cho body */
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: #0A0E1A;
+}
+
+/* Font Montserrat cho tiêu đề */
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Montserrat', sans-serif;
+}
+
+/* Animation soundwave cho InsideBook */
+@keyframes soundwave {
+  0%, 100% { transform: scaleY(0.3); }
+  50% { transform: scaleY(1); }
+}
+
+.soundwave-bar {
+  animation: soundwave 1s ease-in-out infinite;
+}
+
+/* Smooth scroll toàn trang */
+html {
+  scroll-behavior: smooth;
+}
