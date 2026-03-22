@@ -1,112 +1,58 @@
 import React from 'react'
 import { motion } from 'framer-motion'
 
-// Hero Section - Thu hút sự chú ý ngay lập tức
-// Layout 2 cột desktop, 1 cột mobile
 function Hero() {
-  // Xử lý click CTA - scroll đến pricing
   const handleCTA = () => {
-    const pricingSection = document.getElementById('pricing')
-    if (pricingSection) {
-      pricingSection.scrollIntoView({ behavior: 'smooth' })
-    }
+    document.getElementById('pricing')?.scrollIntoView({ behavior: 'smooth' })
   }
 
   return (
-    <section className="min-h-screen flex items-center pt-16 pb-12 px-4 bg-navy">
+    <section className="min-h-screen flex items-center pt-16 pb-12 px-4 bg-[#F6FAF7]">
       <div className="max-w-6xl mx-auto w-full">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
 
-          {/* Cột trái - Nội dung chính */}
-          <motion.div
-            initial={{ opacity: 0, x: -40 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.7, ease: 'easeOut' }}
-          >
-            {/* Badge giới thiệu */}
-            <div className="inline-flex items-center gap-2 bg-gold/20 border border-gold/40 rounded-full px-4 py-1.5 mb-6">
-              <span className="text-gold text-sm font-semibold">
-                Phuong Phap Khoa Hoc
-              </span>
-              <span className="text-gold text-lg">&#127891;</span>
+          <motion.div initial={{ opacity: 0, x: -40 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.7, ease: 'easeOut' }}>
+            <div className="inline-flex items-center gap-2 bg-[#2D6A4F]/10 border border-[#2D6A4F]/30 rounded-full px-4 py-1.5 mb-6">
+              <span className="text-[#2D6A4F] text-sm font-semibold">🚀 Phương pháp học thông minh cho người bận rộn</span>
             </div>
 
-            {/* Tiêu đề chính */}
-            <h1 className="font-montserrat font-extrabold text-4xl lg:text-5xl xl:text-6xl leading-tight mb-6 text-white">
-              Hoc Tieng Duc{' '}
-              <span className="text-gold">Chi Voi 5 Phut</span>{' '}
-              Moi Ngay
+            <h1 className="font-montserrat font-extrabold text-4xl lg:text-5xl xl:text-6xl leading-tight mb-6 text-[#1E293B]">
+              Chinh Phục Tiếng Đức{' '}
+              <span className="text-[#2D6A4F]">Chỉ Với 5 Phút</span>{' '}
+              Mỗi Ngày
             </h1>
 
-            {/* Subheadline - Mô tả ngắn */}
-            <p className="text-gray-300 text-lg mb-8 leading-relaxed">
-              Khong can den lop. Khong can thay. Chi can 5 phut moi ngay voi 
-              phuong phap Spaced Repetition - ban se nam vung tieng Duc trong 
-              vong 3 thang!
+            <p className="text-[#475569] text-lg mb-8 leading-relaxed">
+              Không nhồi nhét ngữ pháp khô khan. Ghi nhớ tự nhiên, sâu sắc qua các mẩu chuyện ngắn và phương pháp Lặp lại ngắt quãng (Spaced Repetition).
             </p>
 
-            {/* Nút CTA chính */}
-            <motion.button
-              onClick={handleCTA}
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.98 }}
-              className="bg-gold hover:bg-yellow-500 text-navy font-montserrat font-bold text-lg px-8 py-4 rounded-xl shadow-lg shadow-gold/30 transition-all duration-200 mb-6"
-            >
-              Dat Mua Ngay - 179.000d
+            <motion.button onClick={handleCTA} whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.98 }}
+              className="bg-[#F59E0B] hover:bg-[#D97706] text-white font-montserrat font-bold text-lg px-8 py-4 rounded-xl shadow-lg shadow-[#F59E0B]/30 transition-all duration-200 mb-4 block w-fit">
+              Mua Ngay - Nhận Ưu Đãi
             </motion.button>
 
-            {/* Trust badge giao hàng */}
-            <div className="flex items-center gap-2 text-gray-400 text-sm">
-              <span className="text-2xl">&#128666;</span>
-              <span>Giao hang toan quoc - Bao dam hoan tien trong 7 ngay</span>
+            <motion.a href="https://m.me/GiaBaoBooks" target="_blank" rel="noopener noreferrer"
+              whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.98 }}
+              className="inline-flex items-center gap-2 bg-[#2D6A4F]/10 hover:bg-[#2D6A4F]/20 border border-[#2D6A4F]/30 text-[#2D6A4F] font-semibold px-6 py-3 rounded-xl transition-all duration-200 mb-6">
+              <svg className="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12 2C6.477 2 2 6.145 2 11.243c0 2.908 1.438 5.504 3.688 7.2V22l3.374-1.853c.9.25 1.854.384 2.938.384 5.523 0 10-4.145 10-9.243S17.523 2 12 2zm1.007 12.453l-2.548-2.72-4.97 2.72 5.473-5.808 2.61 2.72 4.908-2.72-5.473 5.808z"/>
+              </svg>
+              Nhắn tin qua Messenger
+            </motion.a>
+
+            <div className="flex items-center gap-2 text-[#475569] text-sm">
+              <span>🚚</span>
+              <span>Miễn phí giao hàng toàn quốc</span>
             </div>
           </motion.div>
 
-          {/* Cột phải - Ảnh bìa sách với animation floating */}
-          <motion.div
-            initial={{ opacity: 0, x: 40 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.7, delay: 0.2, ease: 'easeOut' }}
-            className="flex justify-center"
-          >
-            {/* Container ảnh với hiệu ứng floating */}
-            <motion.div
-              animate={{ y: [0, -15, 0] }}
-              transition={{ duration: 3, repeat: Infinity, ease: 'easeInOut' }}
-              className="relative"
-            >
-              {/* Vòng sáng phía sau ảnh */}
-              <div className="absolute inset-0 bg-gold/20 rounded-2xl blur-3xl scale-110" />
-
-              {/* Ảnh bìa sách */}
-              <img
-                src="/5phut-page/bia-sach.jpg"
-                alt="5 Phut Tieng Duc - Bia sach"
-                className="relative w-64 lg:w-80 xl:w-96 rounded-2xl shadow-2xl shadow-gold/20 object-cover"
-                onError={(e) => {
-                  // Fallback khi không load được ảnh
-                  e.target.style.display = 'none'
-                  e.target.nextSibling.style.display = 'flex'
-                }}
-              />
-
-              {/* Placeholder khi ảnh lỗi */}
-              <div
-                className="hidden w-64 lg:w-80 h-80 lg:h-96 bg-surface rounded-2xl border-2 border-gold/30 items-center justify-center"
-              >
-                <div className="text-center">
-                  <div className="text-6xl mb-4">&#128218;</div>
-                  <p className="text-gold font-bold">5 Phut Tieng Duc</p>
-                </div>
-              </div>
-
-              {/* Badge nổi - số lượng đã bán */}
-              <motion.div
-                initial={{ scale: 0 }}
-                animate={{ scale: 1 }}
-                transition={{ delay: 0.8, type: 'spring' }}
-                className="absolute -top-4 -right-4 bg-gold text-navy font-montserrat font-bold text-xs px-3 py-1.5 rounded-full shadow-lg"
-              >
+          <motion.div initial={{ opacity: 0, x: 40 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.7, delay: 0.2, ease: 'easeOut' }} className="flex justify-center">
+            <motion.div animate={{ y: [0, -15, 0] }} transition={{ duration: 3, repeat: Infinity, ease: 'easeInOut' }} className="relative">
+              <div className="absolute inset-0 bg-[#2D6A4F]/10 rounded-2xl blur-3xl scale-110" />
+              <img src="/5phut-page/bia-sach.jpg" alt="Sách 5 Phút Tiếng Đức" loading="lazy"
+                className="relative w-64 lg:w-80 xl:w-96 rounded-2xl shadow-2xl shadow-[#2D6A4F]/20 object-cover" />
+              <motion.div initial={{ scale: 0 }} animate={{ scale: 1 }} transition={{ delay: 0.8, type: 'spring' }}
+                className="absolute -top-4 -right-4 bg-[#F59E0B] text-white font-montserrat font-bold text-xs px-3 py-1.5 rounded-full shadow-lg">
                 HOT!
               </motion.div>
             </motion.div>
