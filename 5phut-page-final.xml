@@ -1,0 +1,359 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ProjectSpec>
+
+  <!-- ============================================================
+       5 PHÚT TIẾNG ĐỨC - LANDING PAGE SPEC
+       Version: 1.0 Final
+       Date: 2026-03-23
+       Live: https://giabao72.github.io/5phut-page/
+       Repo: https://github.com/GiaBao72/5phut-page
+  ============================================================ -->
+
+  <ProjectInfo>
+    <Name>Landing Page - 5 Phút Tiếng Đức</Name>
+    <Owner>GiaBaoBooks (Vương Gia Bảo)</Owner>
+    <Goal>Bán combo sách + audio tiếng Đức, giá 149k, freeship toàn quốc</Goal>
+    <LiveURL>https://giabao72.github.io/5phut-page/</LiveURL>
+    <FacebookPage>https://www.facebook.com/GiaBaoBooks</FacebookPage>
+    <MessengerLink>https://m.me/GiaBaoBooks</MessengerLink>
+  </ProjectInfo>
+
+  <TechStack>
+    <Framework>Vite + React 18</Framework>
+    <Styling>Tailwind CSS v3</Styling>
+    <Animations>Framer Motion v11</Animations>
+    <Counter>react-countup v6</Counter>
+    <Deploy>gh-pages (GitHub Pages, branch: gh-pages)</Deploy>
+    <BasePath>/5phut-page/</BasePath>
+  </TechStack>
+
+  <DesignSystem>
+    <Colors>
+      <Background>#F6FAF7</Background>
+      <Surface>#FFFFFF</Surface>
+      <AccentCTA>#F59E0B</AccentCTA>
+      <AccentCTADark>#D97706</AccentCTADark>
+      <AccentGreen>#2D6A4F</AccentGreen>
+      <AccentGreenDark>#1B4D37</AccentGreenDark>
+      <TextPrimary>#1E293B</TextPrimary>
+      <TextSecondary>#475569</TextSecondary>
+      <FooterBG>#1E293B</FooterBG>
+    </Colors>
+    <Typography>
+      <HeadingFont>Montserrat (Bold, ExtraBold) - Google Fonts</HeadingFont>
+      <BodyFont>Inter (Regular, Medium) - Google Fonts</BodyFont>
+    </Typography>
+  </DesignSystem>
+
+  <ProductInfo>
+    <BookTitle>5 Phút Tiếng Đức</BookTitle>
+    <Pages>200</Pages>
+    <Method>Spaced Repetition (Lặp lại ngắt quãng)</Method>
+    <OriginalPrice>200.000đ</OriginalPrice>
+    <SalePrice>149.000đ</SalePrice>
+    <Deadline>2026-03-31T23:59:59</Deadline>
+    <ComboIncludes>
+      <Item>1 Sách in cao cấp (200 trang, màu sắc nét)</Item>
+      <Item>Kho 200 Audio luyện nghe chuẩn giọng bản xứ</Item>
+      <Item gift="true">PDF 500 từ vựng tiếng Đức thông dụng</Item>
+    </ComboIncludes>
+  </ProductInfo>
+
+  <Assets>
+    <File path="public/bia-sach.jpg" desc="Ảnh bìa sách - màu xanh forest green" />
+    <File path="public/demo-audio.mp3" desc="Audio demo 25 giây - bài Ngày 11 Clara giúp bố làm vườn" />
+    <File path="public/.nojekyll" desc="Bypass GitHub Pages Jekyll processing" />
+  </Assets>
+
+  <PageStructure>
+
+    <Component name="MarqueeBanner" inside="Hero.jsx">
+      <Description>Banner xanh chạy từ phải sang trái, lặp vô hạn</Description>
+      <Text>🚚 Miễn phí giao hàng toàn quốc</Text>
+      <BgColor>#2D6A4F</BgColor>
+      <Animation>framer-motion animate x từ 0% đến -50%, duration 20s, repeat Infinity, ease linear</Animation>
+      <Note>Render 2 bộ text để loop liền mạch không giật</Note>
+    </Component>
+
+    <Component name="StickyHeader" file="src/components/StickyHeader.jsx">
+      <Description>Header cố định xuất hiện sau khi scroll qua 600px</Description>
+      <ShowAfterScroll>600</ShowAfterScroll>
+      <Content>Logo GiaBaoBooks (xanh) + nút Mua Ngay (vàng)</Content>
+      <Style>backdrop-blur-md bg-white/90 border-b shadow-sm</Style>
+      <Animation>slide down từ y=-80, fade in khi hiện - slide up khi ẩn</Animation>
+    </Component>
+
+    <Component name="Hero" file="src/components/Hero.jsx">
+      <Layout>2 cột Desktop / 1 cột Mobile</Layout>
+      <Badge>🚀 Phương pháp học thông minh cho người bận rộn</Badge>
+      <Headline>Chinh Phục Tiếng Đức Chỉ Với 5 Phút Mỗi Ngày</Headline>
+      <Subheadline>Không nhồi nhét ngữ pháp khô khan. Ghi nhớ tự nhiên, sâu sắc qua các mẩu chuyện ngắn và phương pháp Lặp lại ngắt quãng (Spaced Repetition).</Subheadline>
+      <CTA_Primary color="#F59E0B" action="scroll to #pricing">Mua Ngay - Nhận Ưu Đãi</CTA_Primary>
+      <CTA_Secondary href="https://m.me/GiaBaoBooks">Nhắn tin qua Messenger</CTA_Secondary>
+      <Image src="/5phut-page/bia-sach.jpg" animation="floating y 0→-15→0, duration 3s repeat infinity" />
+      <Badge_HOT color="#F59E0B" position="top-right">HOT!</Badge_HOT>
+    </Component>
+
+    <Component name="Problem" file="src/components/Problem.jsx">
+      <Headline>Học tiếng Đức mãi vẫn "giậm chân tại chỗ"?</Headline>
+      <Subheadline>Nếu bạn đã từng có những cảm giác này, bạn không đơn độc đâu...</Subheadline>
+      <PainPoints>
+        <Point>
+          <Title>Học trước, quên sau</Title>
+          <Desc>Nhồi nhét từ vựng vô tội vạ nhưng thiếu ngữ cảnh khiến não bộ nhanh chóng đào thải chỉ sau vài ngày.</Desc>
+        </Point>
+        <Point>
+          <Title>Ám ảnh ngữ pháp</Title>
+          <Desc>Bị ngợp bởi các quy tắc phức tạp, rườm rà làm mất đi sự hứng thú và động lực học tự nhiên.</Desc>
+        </Point>
+        <Point>
+          <Title>Quá thiếu thời gian</Title>
+          <Desc>Công việc và học tập bận rộn khiến bạn không thể vắt kiệt sức ngồi hàng giờ đồng hồ trước bàn giấy.</Desc>
+        </Point>
+      </PainPoints>
+    </Component>
+
+    <Component name="Solution" file="src/components/Solution.jsx">
+      <Badge>💡 Giải Pháp Đột Phá</Badge>
+      <Headline>Học Ít Hơn, Nhớ Lâu Hơn Cùng "5 Phút Tiếng Đức"</Headline>
+      <Features>
+        <Feature icon="📖">
+          <Title>Học qua ngữ cảnh thực tế</Title>
+          <Desc>Mỗi trang sách là 1 mẩu chuyện ngắn kèm 2 từ mới cốt lõi. Hiểu sâu, nhớ lâu, áp dụng được ngay.</Desc>
+        </Feature>
+        <Feature icon="🔁">
+          <Title>Kỹ thuật Spaced Repetition</Title>
+          <Desc>Ứng dụng cơ chế Lặp lại ngắt quãng, tự động nhắc nhở não bộ ôn tập lại kiến thức ngay trước khi kịp quên.</Desc>
+        </Feature>
+      </Features>
+      <Counters bgColor="#2D6A4F" textColor="white">
+        <Counter number="200" label="Trang Sách" />
+        <Counter number="200" label="Audio Luyện Nghe" />
+        <Counter number="500" suffix="+" label="Từ Vựng Cốt Lõi" />
+      </Counters>
+    </Component>
+
+    <Component name="AnimatedCounter" file="src/components/AnimatedCounter.jsx">
+      <Library>react-countup</Library>
+      <Props>number, suffix, label</Props>
+      <Config>duration=2, enableScrollSpy=true, scrollSpyOnce=true</Config>
+    </Component>
+
+    <Component name="InsideBook" file="src/components/InsideBook.jsx">
+      <Headline>Trải Nghiệm Thực Tế Bên Trong Sách</Headline>
+      <Layout>2 cột: Trang mẫu sách (trái) + Audio player (phải)</Layout>
+      <SamplePage>
+        <Tag>TRANG MẪU — Ngày 11</Tag>
+        <TextDE>Am Morgen hilft Clara ihrem Vater im Garten. Sie sammelt kleine Äste ein und legt sie ordentlich zur Seite. Der Vater erklärt ruhig, was er tut. Clara hört aufmerksam zu und stellt Fragen.</TextDE>
+        <TextVI>Vào buổi sáng, Clara giúp bố trong vườn. Em nhặt những cành cây nhỏ và xếp gọn sang một bên. Bố nhẹ nhàng giải thích công việc mình đang làm. Clara chăm chú lắng nghe và đặt câu hỏi.</TextVI>
+        <Word1 de="der Garten" phien_am="ga-ten" vi="khu vườn" />
+        <Word2 de="die Äste" phien_am="é-stơ" vi="cành cây" />
+        <Conclusion de="Gemeinsames Helfen verbindet." vi="Cùng nhau giúp đỡ tạo sự gắn kết." />
+      </SamplePage>
+      <AudioPlayer>
+        <Src>/5phut-page/demo-audio.mp3</Src>
+        <Duration>25 giây</Duration>
+        <Features>Soundwave animation, progress bar thật, click để tua, hiển thị thời gian realtime</Features>
+        <SoundwaveDelays>0, 0.15, 0.3, 0.15, 0</SoundwaveDelays>
+      </AudioPlayer>
+    </Component>
+
+    <Component name="CountdownTimer" file="src/components/CountdownTimer.jsx">
+      <Deadline>2026-03-31T23:59:59</Deadline>
+      <Format>DD:HH:MM:SS</Format>
+      <Style>4 ô vuông xanh #2D6A4F, chữ trắng, Montserrat ExtraBold</Style>
+      <Update>setInterval mỗi 1000ms</Update>
+    </Component>
+
+    <Component name="Pricing" file="src/components/Pricing.jsx">
+      <Headline>Đầu Tư Nhỏ, Bước Tiến Lớn</Headline>
+      <CountdownLabel>⏳ Ưu đãi Tháng 3 sẽ kết thúc sau:</CountdownLabel>
+      <Card tag="BEST SELLER" tagBG="#2D6A4F">
+        <Title>Combo Chinh Phục Tiếng Đức</Title>
+        <PriceOriginal strikethrough="#ef4444">200.000đ</PriceOriginal>
+        <PriceSale color="#F59E0B">149.000đ</PriceSale>
+        <Items>
+          <Item>1 Sách in cao cấp (200 trang, màu sắc nét)</Item>
+          <Item>Kho 200 Audio luyện nghe chuẩn giọng bản xứ</Item>
+          <Item>🎁 TẶNG KÈM: PDF 500 từ vựng tiếng Đức thông dụng</Item>
+        </Items>
+        <CTA href="https://m.me/GiaBaoBooks" color="#F59E0B">Đặt Hàng Ngay - Chỉ 149.000đ</CTA>
+        <Guarantee>🛡️ Yên tâm tuyệt đối: Nhận sách, kiểm tra ưng ý rồi mới thanh toán.</Guarantee>
+      </Card>
+    </Component>
+
+    <Component name="Testimonials" file="src/components/Testimonials.jsx">
+      <Headline>Hàng Trăm Người Đã Tin Dùng</Headline>
+      <Style>Mockup tin nhắn Messenger/Zalo - trông như screenshot thật</Style>
+      <Reviews>
+        <Review platform="messenger">
+          <Name>Minh Tuấn</Name>
+          <Tag>Kỹ sư IT · Hà Nội</Tag>
+          <Time>2 ngày trước</Time>
+          <Msg>Mình bận lắm, không có thời gian học bài bản. Nhưng cuốn này chỉ 5 phút/ngày, đọc lúc ăn sáng là xong. Sau 3 tuần nhớ được ~60 từ mà không cần cố gắng 🔥</Msg>
+        </Review>
+        <Review platform="zalo">
+          <Name>Thu Hương</Name>
+          <Tag>Sinh viên · TP.HCM</Tag>
+          <Time>5 ngày trước</Time>
+          <Msg>Mình đang chuẩn bị du học Đức năm sau. Cuốn sách + audio giúp mình nghe quen phát âm bản xứ luôn. Giá 149k mà được cả kho audio thì quá hời 😍</Msg>
+        </Review>
+        <Review platform="messenger">
+          <Name>Hoàng Nam</Name>
+          <Tag>Nhân viên văn phòng · Đà Nẵng</Tag>
+          <Time>1 tuần trước</Time>
+          <Msg>Trước giờ học tiếng Đức toàn bỏ ngang vì ngữ pháp khó quá. Cuốn này học theo câu chuyện nên tự nhiên hẳn. Đã mua thêm 1 cuốn cho bạn 👍</Msg>
+        </Review>
+      </Reviews>
+    </Component>
+
+    <Component name="Author" file="src/components/Author.jsx">
+      <Headline>Câu Chuyện Từ GiaBaoBooks</Headline>
+      <P1>Chúng tôi thấu hiểu những rào cản to lớn của người Việt khi bắt đầu tiếp cận một ngôn ngữ mới như tiếng Đức. "5 Phút Tiếng Đức" ra đời không chỉ đơn thuần là một ấn phẩm, mà là một giải pháp thực chiến, được đúc kết để tối ưu hóa thời gian của bạn.</P1>
+      <P2>Với khao khát mang đến những tài liệu chất lượng và dễ tiếp cận nhất, GiaBaoBooks cam kết sẽ luôn đồng hành cùng bạn trên mọi chặng đường chinh phục ngôn ngữ.</P2>
+    </Component>
+
+    <Component name="FAQ" file="src/components/FAQ.jsx">
+      <Headline>Giải Đáp Thắc Mắc (FAQ)</Headline>
+      <Style>Accordion - click để mở/đóng với animation</Style>
+      <Items>
+        <Item>
+          <Q>Sách có phù hợp cho người chưa biết một chữ bẻ đôi nào không?</Q>
+          <A>Hoàn toàn phù hợp! Sách được tinh chỉnh lộ trình cực kỳ thân thiện cho người mới bắt đầu (từ con số 0), đi từ những mẩu chuyện đơn giản và cơ bản nhất.</A>
+        </Item>
+        <Item>
+          <Q>Tôi sẽ nhận 200 Audio và file PDF quà tặng bằng cách nào?</Q>
+          <A>Rất đơn giản. Khi nhận sách, bạn sẽ thấy một mã QR độc quyền. Chỉ cần dùng điện thoại quét mã là truy cập trọn đời vào kho Audio và tải file PDF nét căng về máy.</A>
+        </Item>
+        <Item>
+          <Q>Thời gian tôi nhận được sách là bao lâu?</Q>
+          <A>Sách sẽ được đóng gói cẩn thận và đến tay bạn chỉ trong 2-4 ngày làm việc tùy khu vực. Và đừng quên, GiaBaoBooks tài trợ 100% phí vận chuyển (Freeship)!</A>
+        </Item>
+      </Items>
+    </Component>
+
+    <Component name="Footer" file="src/components/Footer.jsx">
+      <BG>#1E293B</BG>
+      <Title>GiaBaoBooks</Title>
+      <Subtitle>Lan tỏa tri thức, phá vỡ rào cản ngôn ngữ.</Subtitle>
+      <CTA href="https://m.me/GiaBaoBooks" color="#F59E0B">Mua Ngay - Chỉ 149k</CTA>
+      <Links>
+        <Link href="https://m.me/GiaBaoBooks">Messenger</Link>
+        <Link href="https://www.facebook.com/GiaBaoBooks">Facebook</Link>
+      </Links>
+      <Copyright>© 2026 GiaBaoBooks. All rights reserved.</Copyright>
+    </Component>
+
+    <Component name="MessengerFAB" inside="App.jsx">
+      <Description>Nút Messenger cố định góc dưới phải màn hình</Description>
+      <Position>fixed bottom-6 right-6 z-50</Position>
+      <Color>#2D6A4F</Color>
+      <Size>w-14 h-14 rounded-full</Size>
+      <Animation>animate-ping opacity-30 (hiệu ứng pulse xanh)</Animation>
+      <AppearDelay>1.5s sau khi trang load</AppearDelay>
+      <Href>https://m.me/GiaBaoBooks</Href>
+    </Component>
+
+    <Component name="SalesPopup" file="src/components/SalesPopup.jsx">
+      <Description>FOMO popup hiển thị đơn hàng giả lập</Description>
+      <Position>
+        <Mobile>bottom-24 left-4 (không đè FAB)</Mobile>
+        <Desktop>bottom-6 left-6</Desktop>
+      </Position>
+      <Timing>
+        <FirstShow>15 giây sau khi vào trang</FirstShow>
+        <Duration>4 giây rồi tự tắt</Duration>
+        <Repeat>Mỗi 30 giây</Repeat>
+      </Timing>
+      <Data>
+        <Sale name="T.V.A" city="Hà Nội" time="3 phút" />
+        <Sale name="N.T.B" city="TP. Hồ Chí Minh" time="7 phút" />
+        <Sale name="P.Q.H" city="Đà Nẵng" time="12 phút" />
+        <Sale name="L.T.N" city="Cần Thơ" time="18 phút" />
+        <Sale name="V.M.K" city="Hải Phòng" time="25 phút" />
+        <Sale name="T.H.L" city="Huế" time="31 phút" />
+        <Sale name="Đ.T.T" city="Nha Trang" time="45 phút" />
+      </Data>
+    </Component>
+
+  </PageStructure>
+
+  <ConfigFiles>
+
+    <File name="vite.config.js">
+      <Content><![CDATA[
+import { defineConfig } from 'vite'
+import react from '@vitejs/plugin-react'
+import path from 'path'
+
+export default defineConfig({
+  plugins: [react()],
+  base: '/5phut-page/',
+  resolve: {
+    alias: { '@': path.resolve(__dirname, './src') }
+  },
+  build: { outDir: 'dist', emptyOutDir: true }
+})
+      ]]></Content>
+    </File>
+
+    <File name="tailwind.config.js">
+      <Content><![CDATA[
+export default {
+  content: ['./index.html', './src/**/*.{js,ts,jsx,tsx}'],
+  theme: {
+    extend: {
+      colors: {
+        'brand-bg': '#F6FAF7',
+        'brand-green': '#2D6A4F',
+        'brand-amber': '#F59E0B',
+        'brand-text': '#1E293B',
+      },
+      fontFamily: {
+        montserrat: ['Montserrat', 'sans-serif'],
+        inter: ['Inter', 'sans-serif']
+      }
+    }
+  },
+  plugins: []
+}
+      ]]></Content>
+    </File>
+
+    <File name="index.html">
+      <GoogleFonts>https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&amp;family=Inter:wght@400;500;600&amp;display=swap</GoogleFonts>
+    </File>
+
+    <File name="package.json - scripts">
+      <Script name="dev">vite</Script>
+      <Script name="build">vite build</Script>
+      <Script name="predeploy">npm run build</Script>
+      <Script name="deploy">gh-pages -d dist</Script>
+    </File>
+
+    <File name="package.json - dependencies">
+      <Dep name="react" version="^18.2.0" />
+      <Dep name="react-dom" version="^18.2.0" />
+      <Dep name="framer-motion" version="^11.0.0" />
+      <Dep name="react-countup" version="^6.5.0" />
+      <DevDep name="vite" version="^5.1.0" />
+      <DevDep name="@vitejs/plugin-react" version="^4.2.0" />
+      <DevDep name="tailwindcss" version="^3.4.1" />
+      <DevDep name="postcss" version="^8.4.35" />
+      <DevDep name="autoprefixer" version="^10.4.17" />
+      <DevDep name="gh-pages" version="^6.1.1" />
+    </File>
+
+  </ConfigFiles>
+
+  <DeployInstructions>
+    <Step>1. Clone repo: git clone https://github.com/GiaBao72/5phut-page.git</Step>
+    <Step>2. Cài dependencies: npm install</Step>
+    <Step>3. Dev local: npm run dev -- --port 3456 --host</Step>
+    <Step>4. Deploy: npm run deploy</Step>
+    <Note>GitHub Token cần có quyền repo + workflow</Note>
+    <Note>File .nojekyll phải có trong public/ để GitHub Pages không lọc _assets</Note>
+    <Note>File 11-20.mp4 đã gitignore (132MB vượt giới hạn GitHub). Chỉ giữ demo-audio.mp3</Note>
+  </DeployInstructions>
+
+</ProjectSpec>
