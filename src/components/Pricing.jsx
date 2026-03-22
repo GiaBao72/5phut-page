@@ -35,8 +35,8 @@ function Pricing() {
             <p className="text-[#475569] text-sm mb-6">Tiết kiệm tối đa thời gian &amp; chi phí học tập</p>
 
             <div className="flex items-baseline gap-3 mb-6">
-              <span className="text-red-400 line-through text-lg">249.000đ</span>
-              <span className="font-montserrat font-extrabold text-5xl text-[#F59E0B]">179.000đ</span>
+              <span className="text-red-400 line-through text-lg">200.000đ</span>
+              <span className="font-montserrat font-extrabold text-5xl text-[#F59E0B]">149.000đ</span>
             </div>
 
             <div className="space-y-3 mb-8">
@@ -54,7 +54,7 @@ function Pricing() {
               <svg className="w-6 h-6" viewBox="0 0 24 24" fill="currentColor">
                 <path d="M12 2C6.477 2 2 6.145 2 11.243c0 2.908 1.438 5.504 3.688 7.2V22l3.374-1.853c.9.25 1.854.384 2.938.384 5.523 0 10-4.145 10-9.243S17.523 2 12 2zm1.007 12.453l-2.548-2.72-4.97 2.72 5.473-5.808 2.61 2.72 4.908-2.72-5.473 5.808z"/>
               </svg>
-              Đặt Hàng Ngay - Chỉ 179.000đ
+              Đặt Hàng Ngay - Chỉ 149.000đ
             </motion.a>
 
             <motion.a href={FACEBOOK_LINK} target="_blank" rel="noopener noreferrer" whileHover={{ scale: 1.02 }}
