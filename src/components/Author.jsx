@@ -15,16 +15,16 @@ function Author() {
               <div className="w-24 h-24 bg-[#2D6A4F]/10 rounded-full flex items-center justify-center mb-4 border-2 border-[#2D6A4F]/20">
                 <span className="text-4xl">📚</span>
               </div>
-              <h3 className="font-montserrat font-bold text-[#1E293B] text-lg mb-1">Gia Bảo Books</h3>
+              <h3 className="font-montserrat font-bold text-[#1E293B] text-lg mb-1">GiaBaoBooks</h3>
               <p className="text-[#475569] text-sm">Chắp cánh ước mơ tri thức</p>
             </div>
             <div className="lg:col-span-2">
-              <h2 className="font-montserrat font-extrabold text-2xl lg:text-3xl text-[#1E293B] mb-4">Câu Chuyện Từ Gia Bảo Books</h2>
+              <h2 className="font-montserrat font-extrabold text-2xl lg:text-3xl text-[#1E293B] mb-4">Câu Chuyện Từ GiaBaoBooks</h2>
               <p className="text-[#475569] leading-relaxed mb-4">
                 Chúng tôi thấu hiểu những rào cản to lớn của người Việt khi bắt đầu tiếp cận một ngôn ngữ mới như tiếng Đức. "5 Phút Tiếng Đức" ra đời không chỉ đơn thuần là một ấn phẩm, mà là một giải pháp thực chiến, được đúc kết để tối ưu hóa thời gian của bạn.
               </p>
               <p className="text-[#475569] leading-relaxed mb-6">
-                Với khao khát mang đến những tài liệu chất lượng và dễ tiếp cận nhất, Gia Bảo Books cam kết sẽ luôn đồng hành cùng bạn trên mọi chặng đường chinh phục ngôn ngữ.
+                Với khao khát mang đến những tài liệu chất lượng và dễ tiếp cận nhất, GiaBaoBooks cam kết sẽ luôn đồng hành cùng bạn trên mọi chặng đường chinh phục ngôn ngữ.
               </p>
               <div className="flex flex-wrap gap-3">
                 <a href={MESSENGER_LINK} target="_blank" rel="noopener noreferrer"

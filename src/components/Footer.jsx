@@ -9,7 +9,7 @@ function Footer() {
     <footer className="bg-[#1E293B] py-16 px-4">
       <div className="max-w-4xl mx-auto text-center">
         <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }} className="mb-10">
-          <h2 className="font-montserrat font-extrabold text-2xl lg:text-3xl text-white mb-2">Gia Bảo Books</h2>
+          <h2 className="font-montserrat font-extrabold text-2xl lg:text-3xl text-white mb-2">GiaBaoBooks</h2>
           <p className="text-gray-400 mb-8">Lan tỏa tri thức, phá vỡ rào cản ngôn ngữ.</p>
           <div className="flex flex-col sm:flex-row gap-3 justify-center">
             <motion.a href={MESSENGER_LINK} target="_blank" rel="noopener noreferrer"
@@ -26,7 +26,7 @@ function Footer() {
             <span className="text-white/20">|</span>
             <a href={FACEBOOK_LINK} target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white text-sm transition-colors">Facebook</a>
           </div>
-          <p className="text-gray-600 text-xs">© {new Date().getFullYear()} Gia Bảo Books. All rights reserved.</p>
+          <p className="text-gray-600 text-xs">© {new Date().getFullYear()} GiaBaoBooks. All rights reserved.</p>
         </div>
       </div>
     </footer>

@@ -15,7 +15,7 @@ const faqItems = [
   {
     id: 3,
     question: 'Thời gian tôi nhận được sách là bao lâu?',
-    answer: 'Sách sẽ được đóng gói cẩn thận và đến tay bạn chỉ trong 2-4 ngày làm việc tùy khu vực. Và đừng quên, Gia Bảo Books tài trợ 100% phí vận chuyển (Freeship)!',
+    answer: 'Sách sẽ được đóng gói cẩn thận và đến tay bạn chỉ trong 2-4 ngày làm việc tùy khu vực. Và đừng quên, GiaBaoBooks tài trợ 100% phí vận chuyển (Freeship)!',
   },
 ]
 
