@@ -6,11 +6,12 @@
 |---|---|
 | **Tên dự án** | 5 Phút Tiếng Đức - Landing Page |
 | **Repo GitHub** | https://github.com/GiaBao72/5phut-page |
-| **Live URL** | https://giabao72.github.io/5phut-page/ |
+| **Live URL (custom domain)** | https://5phuttiengduc.giabaobooks.vn |
+| **Live URL (GitHub Pages)** | https://giabao72.github.io/5phut-page/ |
 | **Thư mục** | `D:\AI\openclaw\.openclaw\workspace\5ptd-project` |
 | **Ngày bắt đầu** | 2026-03-23 |
 | **Stack** | Vite + React + Tailwind CSS + Framer Motion |
-| **Deploy** | GitHub Pages (branch `gh-pages`) |
+| **Deploy** | GitHub Pages (branch `gh-pages`) via `npm run deploy` |
 
 ---
 
@@ -18,11 +19,12 @@
 
 - **Tên sách:** 5 Phút Tiếng Đức
 - **Mô tả:** 200 trang, mỗi trang 1 mẩu chuyện ngắn + 2 từ mới, phương pháp Spaced Repetition
-- **Giá:** 200.000đ → **149.000đ** (ưu đãi tháng 3)
+- **Giá:** 200.000đ → **149.000đ** (ưu đãi)
 - **Combo gồm:** 1 sách in + 200 audio luyện nghe + 🎁 PDF 500 từ vựng tiếng Đức
 - **Freeship:** Toàn quốc
 - **Facebook:** https://www.facebook.com/GiaBaoBooks
 - **Messenger:** https://m.me/GiaBaoBooks
+- **Trang chủ brand:** https://giabaobooks.vn
 
 ---
 
@@ -45,17 +47,17 @@
 
 ## Cấu trúc trang (thứ tự hiển thị)
 
-1. **MarqueeBanner** - "🚚 Miễn phí giao hàng toàn quốc" chạy từ phải sang trái, vô hạn
-2. **StickyHeader** - Hiện sau scroll 600px, backdrop blur, có nút "Mua Ngay"
+1. **MarqueeBanner** - 3 items xoay vòng chạy từ phải sang trái, vô hạn (duration 45s)
+2. **StickyHeader** - Hiện sau scroll 600px, có logo + nút "Mua Ngay", logo link về giabaobooks.vn
 3. **Hero** - Headline lớn, subheadline, 2 CTA (vàng + Messenger), ảnh sách floating
-4. **Problem** - 3 pain points (Học trước quên sau / Ám ảnh ngữ pháp / Thiếu thời gian)
+4. **Problem** - 3 pain points
 5. **Solution** - 2 features card + AnimatedCounter (200/200/500+)
 6. **InsideBook** - Trang mẫu Ngày 11 + Audio player thật (25 giây)
-7. **Pricing** - Countdown đến 31/3/2026 + Card giá + CTA Messenger
+7. **Pricing** - Countdown trong ngày (reset mỗi ngày lúc 23:59:59) + Card giá + CTA Messenger
 8. **Testimonials** - 3 review dạng mockup tin nhắn Messenger/Zalo
 9. **Author** - Câu chuyện GiaBaoBooks + link Facebook/Messenger
 10. **FAQ** - 3 câu hỏi accordion
-11. **Footer** - Dark footer + nút Mua Ngay + copyright
+11. **Footer** - Dark footer, logo link về giabaobooks.vn, "← Về trang chủ GiaBaoBooks", nút Mua Ngay, copyright
 12. **MessengerFAB** - Nút cố định góc dưới phải, hiệu ứng ping
 13. **SalesPopup** - FOMO popup góc dưới trái (desktop) / trên (mobile)
 
@@ -65,19 +67,19 @@
 
 | File | Mô tả |
 |---|---|
-| `Hero.jsx` | MarqueeBanner + Hero section |
+| `Hero.jsx` | MarqueeBanner (3 items, duration 45s) + Hero section |
 | `Problem.jsx` | 3 pain point cards |
 | `Solution.jsx` | Features + AnimatedCounter |
 | `InsideBook.jsx` | Trang mẫu sách + Audio player thật |
 | `Pricing.jsx` | CountdownTimer + Pricing card |
-| `CountdownTimer.jsx` | Đếm ngược đến 31/3/2026 |
+| `CountdownTimer.jsx` | Đếm ngược đến cuối ngày hôm nay (23:59:59), reset mỗi ngày |
 | `AnimatedCounter.jsx` | Số đếm animated khi scroll đến |
 | `Testimonials.jsx` | 3 review mockup chat |
 | `SalesPopup.jsx` | FOMO popup tự hiện/tắt |
 | `Author.jsx` | Giới thiệu GiaBaoBooks |
 | `FAQ.jsx` | Accordion FAQ |
-| `Footer.jsx` | Dark footer |
-| `StickyHeader.jsx` | Header cố định sau scroll |
+| `Footer.jsx` | Dark footer + logo + link giabaobooks.vn |
+| `StickyHeader.jsx` | Header cố định sau scroll, có logo PNG |
 
 ---
 
@@ -87,6 +89,8 @@
 |---|---|
 | `public/bia-sach.jpg` | Ảnh bìa sách |
 | `public/demo-audio.mp3` | Audio demo 25 giây (extract từ 11-20.mp4, đoạn 1s-26s) |
+| `public/Logo.png` | Logo GiaBaoBooks (hiển thị trong StickyHeader và Footer) |
+| `public/CNAME` | Custom domain: 5phuttiengduc.giabaobooks.vn |
 | `public/.nojekyll` | Bypass GitHub Pages Jekyll |
 
 ---
@@ -123,13 +127,13 @@
 npm install
 
 # Dev server local
-npm run dev -- --port 3456 --host
+npm run dev
 
 # Build + Deploy lên GitHub Pages
 npm run deploy
 ```
 
-**Token GitHub:** `[xem trong memory/pancake-token.txt hoặc TOOLS.md]`
+**Lưu ý:** `base: '/'` trong `vite.config.js` (custom domain, không dùng `/5phut-page/`)
 
 ```bash
 git remote set-url origin https://<GITHUB_TOKEN>@github.com/GiaBao72/5phut-page.git
@@ -152,12 +156,20 @@ git remote set-url origin https://<GITHUB_TOKEN>@github.com/GiaBao72/5phut-page.
 | 2026-03-23 | Thêm Testimonials (mockup chat) + SalesPopup FOMO |
 | 2026-03-23 | Fix pricing mobile tràn ô |
 | 2026-03-23 | Move project vào workspace |
+| 2026-03-23 | Gắn custom domain 5phuttiengduc.giabaobooks.vn (CNAME DNS + public/CNAME) |
+| 2026-03-23 | Fix trang trắng: đổi `base: '/5phut-page/'` → `base: '/'` trong vite.config.js |
+| 2026-03-23 | Fix ảnh + audio: hardcode path `/5phut-page/` → `/` trong Hero.jsx và InsideBook.jsx |
+| 2026-03-23 | Marquee banner: thêm 2 điểm nổi bật (200 audio + sổ tay từ vựng), tốc độ 45s |
+| 2026-03-23 | Countdown đổi từ deadline cố định → đếm ngược trong ngày (reset 23:59:59 mỗi ngày) |
+| 2026-03-23 | StickyHeader: thêm Logo.png, link về giabaobooks.vn |
+| 2026-03-23 | Footer: thêm Logo.png, link "← Về trang chủ GiaBaoBooks" → giabaobooks.vn |
 
 ---
 
 ## Notes quan trọng
 
-- `vite.config.js` cần `base: '/5phut-page/'` cho GitHub Pages
+- `vite.config.js` dùng `base: '/'` khi deploy với custom domain (KHÔNG phải `/5phut-page/`)
 - File tiếng Việt: LUÔN dùng `write` tool hoặc Python, KHÔNG dùng `edit` tool
-- File `11-20.mp4` (132MB) đã bị gitignore, chỉ push `demo-audio.mp3`
-- **Gemini đánh giá:** Trang đạt 90%, đủ để đi live và chạy Ads
+- File `11-20.mp4` (132MB) đã gitignore, chỉ push `demo-audio.mp3`
+- `public/CNAME` phải có để GitHub Pages nhận custom domain
+- DNS: CNAME record `5phuttiengduc` → `giabao72.github.io` tại nhà cung cấp domain

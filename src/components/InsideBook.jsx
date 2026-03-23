@@ -104,7 +104,7 @@ function InsideBook() {
               </h3>
               <p className="text-[#475569] text-sm mb-6">Giọng đọc chuẩn bản xứ, rõ ràng, dễ nghe</p>
 
-              <audio ref={audioRef} src="/5phut-page/demo-audio.mp3" preload="metadata" />
+              <audio ref={audioRef} src="/demo-audio.mp3" preload="metadata" />
 
               {/* Soundwave animation */}
               <div className="flex items-center justify-center gap-1.5 h-16 mb-6">

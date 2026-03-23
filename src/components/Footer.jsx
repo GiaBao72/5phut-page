@@ -3,15 +3,22 @@ import { motion } from 'framer-motion'
 
 const FACEBOOK_LINK = 'https://www.facebook.com/GiaBaoBooks'
 const MESSENGER_LINK = 'https://m.me/GiaBaoBooks'
+const HOME_LINK = 'https://giabaobooks.vn'
 
 function Footer() {
   return (
     <footer className="bg-[#1E293B] py-16 px-4">
       <div className="max-w-4xl mx-auto text-center">
         <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }} className="mb-10">
-          <h2 className="font-montserrat font-extrabold text-2xl lg:text-3xl text-white mb-2">GiaBaoBooks</h2>
-          <p className="text-gray-400 mb-8">Lan tỏa tri thức, phá vỡ rào cản ngôn ngữ.</p>
-          <div className="flex flex-col sm:flex-row gap-3 justify-center">
+          <a href={HOME_LINK} target="_blank" rel="noopener noreferrer" className="inline-block mb-2">
+            <img src="/Logo.png" alt="GiaBaoBooks" className="h-12 w-auto object-contain mx-auto" />
+          </a>
+          <p className="text-gray-400 mb-2">Lan tỏa tri thức, phá vỡ rào cản ngôn ngữ.</p>
+          <a href={HOME_LINK} target="_blank" rel="noopener noreferrer"
+            className="inline-block text-[#2D6A4F] hover:text-[#52B788] text-sm font-semibold mb-8 transition-colors">
+            ← Về trang chủ GiaBaoBooks
+          </a>
+          <div className="flex flex-col sm:flex-row gap-3 justify-center mt-4">
             <motion.a href={MESSENGER_LINK} target="_blank" rel="noopener noreferrer"
               whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.98 }}
               className="inline-flex items-center justify-center gap-2 bg-[#F59E0B] hover:bg-[#D97706] text-white font-montserrat font-bold text-lg px-8 py-4 rounded-xl shadow-lg shadow-[#F59E0B]/20 transition-all duration-200">
@@ -22,6 +29,8 @@ function Footer() {
         </motion.div>
         <div className="border-t border-white/10 pt-8">
           <div className="flex justify-center gap-4 mb-4">
+            <a href={HOME_LINK} target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white text-sm transition-colors">GiaBaoBooks.vn</a>
+            <span className="text-white/20">|</span>
             <a href={MESSENGER_LINK} target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white text-sm transition-colors">Messenger</a>
             <span className="text-white/20">|</span>
             <a href={FACEBOOK_LINK} target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white text-sm transition-colors">Facebook</a>

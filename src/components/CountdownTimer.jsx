@@ -1,13 +1,15 @@
 import React, { useState, useEffect } from 'react'
 
-const DEADLINE = new Date('2026-03-31T23:59:59')
+function getEndOfToday() {
+  const now = new Date()
+  return new Date(now.getFullYear(), now.getMonth(), now.getDate(), 23, 59, 59)
+}
 
 function getTimeLeft() {
-  const diff = DEADLINE - new Date()
-  if (diff <= 0) return { days: 0, hours: 0, minutes: 0, seconds: 0 }
+  const diff = getEndOfToday() - new Date()
+  if (diff <= 0) return { hours: 0, minutes: 0, seconds: 0 }
   return {
-    days: Math.floor(diff / (1000 * 60 * 60 * 24)),
-    hours: Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)),
+    hours: Math.floor(diff / (1000 * 60 * 60)),
     minutes: Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60)),
     seconds: Math.floor((diff % (1000 * 60)) / 1000),
   }
@@ -35,8 +37,6 @@ function CountdownTimer() {
 
   return (
     <div className="flex items-center justify-center gap-3 lg:gap-4">
-      <TimeBox value={timeLeft.days} label="Ngày" />
-      <span className="text-[#2D6A4F] font-bold text-2xl mb-6">:</span>
       <TimeBox value={timeLeft.hours} label="Giờ" />
       <span className="text-[#2D6A4F] font-bold text-2xl mb-6">:</span>
       <TimeBox value={timeLeft.minutes} label="Phút" />

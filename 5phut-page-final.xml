@@ -3,9 +3,9 @@
 
   <!-- ============================================================
        5 PHÚT TIẾNG ĐỨC - LANDING PAGE SPEC
-       Version: 1.0 Final
+       Version: 1.1
        Date: 2026-03-23
-       Live: https://giabao72.github.io/5phut-page/
+       Live: https://5phuttiengduc.giabaobooks.vn
        Repo: https://github.com/GiaBao72/5phut-page
   ============================================================ -->
 
@@ -13,9 +13,11 @@
     <Name>Landing Page - 5 Phút Tiếng Đức</Name>
     <Owner>GiaBaoBooks (Vương Gia Bảo)</Owner>
     <Goal>Bán combo sách + audio tiếng Đức, giá 149k, freeship toàn quốc</Goal>
-    <LiveURL>https://giabao72.github.io/5phut-page/</LiveURL>
+    <LiveURL>https://5phuttiengduc.giabaobooks.vn</LiveURL>
+    <GitHubPagesURL>https://giabao72.github.io/5phut-page/</GitHubPagesURL>
     <FacebookPage>https://www.facebook.com/GiaBaoBooks</FacebookPage>
     <MessengerLink>https://m.me/GiaBaoBooks</MessengerLink>
+    <BrandHome>https://giabaobooks.vn</BrandHome>
   </ProjectInfo>
 
   <TechStack>
@@ -24,7 +26,8 @@
     <Animations>Framer Motion v11</Animations>
     <Counter>react-countup v6</Counter>
     <Deploy>gh-pages (GitHub Pages, branch: gh-pages)</Deploy>
-    <BasePath>/5phut-page/</BasePath>
+    <BasePath>/</BasePath>
+    <Note>BasePath = '/' vì dùng custom domain. Nếu bỏ custom domain → đổi lại '/5phut-page/'</Note>
   </TechStack>
 
   <DesignSystem>
@@ -51,7 +54,7 @@
     <Method>Spaced Repetition (Lặp lại ngắt quãng)</Method>
     <OriginalPrice>200.000đ</OriginalPrice>
     <SalePrice>149.000đ</SalePrice>
-    <Deadline>2026-03-31T23:59:59</Deadline>
+    <CountdownType>End of day (23:59:59 mỗi ngày, reset hàng ngày)</CountdownType>
     <ComboIncludes>
       <Item>1 Sách in cao cấp (200 trang, màu sắc nét)</Item>
       <Item>Kho 200 Audio luyện nghe chuẩn giọng bản xứ</Item>
@@ -62,6 +65,8 @@
   <Assets>
     <File path="public/bia-sach.jpg" desc="Ảnh bìa sách - màu xanh forest green" />
     <File path="public/demo-audio.mp3" desc="Audio demo 25 giây - bài Ngày 11 Clara giúp bố làm vườn" />
+    <File path="public/Logo.png" desc="Logo GiaBaoBooks - dùng trong StickyHeader và Footer" />
+    <File path="public/CNAME" desc="Custom domain: 5phuttiengduc.giabaobooks.vn" />
     <File path="public/.nojekyll" desc="Bypass GitHub Pages Jekyll processing" />
   </Assets>
 
@@ -69,16 +74,20 @@
 
     <Component name="MarqueeBanner" inside="Hero.jsx">
       <Description>Banner xanh chạy từ phải sang trái, lặp vô hạn</Description>
-      <Text>🚚 Miễn phí giao hàng toàn quốc</Text>
+      <Items>
+        <Item>🚚 Miễn phí giao hàng toàn quốc</Item>
+        <Item>🎧 Tặng kèm 200 file audio chuyên nghiệp</Item>
+        <Item>📖 Tặng kèm sổ tay từ vựng in màu</Item>
+      </Items>
       <BgColor>#2D6A4F</BgColor>
-      <Animation>framer-motion animate x từ 0% đến -50%, duration 20s, repeat Infinity, ease linear</Animation>
+      <Animation>framer-motion animate x từ 0% đến -50%, duration 45s, repeat Infinity, ease linear</Animation>
       <Note>Render 2 bộ text để loop liền mạch không giật</Note>
     </Component>
 
     <Component name="StickyHeader" file="src/components/StickyHeader.jsx">
       <Description>Header cố định xuất hiện sau khi scroll qua 600px</Description>
       <ShowAfterScroll>600</ShowAfterScroll>
-      <Content>Logo GiaBaoBooks (xanh) + nút Mua Ngay (vàng)</Content>
+      <Content>Logo.png (link về giabaobooks.vn) + nút Mua Ngay (vàng, link Messenger)</Content>
       <Style>backdrop-blur-md bg-white/90 border-b shadow-sm</Style>
       <Animation>slide down từ y=-80, fade in khi hiện - slide up khi ẩn</Animation>
     </Component>
@@ -90,7 +99,7 @@
       <Subheadline>Không nhồi nhét ngữ pháp khô khan. Ghi nhớ tự nhiên, sâu sắc qua các mẩu chuyện ngắn và phương pháp Lặp lại ngắt quãng (Spaced Repetition).</Subheadline>
       <CTA_Primary color="#F59E0B" action="scroll to #pricing">Mua Ngay - Nhận Ưu Đãi</CTA_Primary>
       <CTA_Secondary href="https://m.me/GiaBaoBooks">Nhắn tin qua Messenger</CTA_Secondary>
-      <Image src="/5phut-page/bia-sach.jpg" animation="floating y 0→-15→0, duration 3s repeat infinity" />
+      <Image src="/bia-sach.jpg" animation="floating y 0→-15→0, duration 3s repeat infinity" />
       <Badge_HOT color="#F59E0B" position="top-right">HOT!</Badge_HOT>
     </Component>
 
@@ -151,7 +160,7 @@
         <Conclusion de="Gemeinsames Helfen verbindet." vi="Cùng nhau giúp đỡ tạo sự gắn kết." />
       </SamplePage>
       <AudioPlayer>
-        <Src>/5phut-page/demo-audio.mp3</Src>
+        <Src>/demo-audio.mp3</Src>
         <Duration>25 giây</Duration>
         <Features>Soundwave animation, progress bar thật, click để tua, hiển thị thời gian realtime</Features>
         <SoundwaveDelays>0, 0.15, 0.3, 0.15, 0</SoundwaveDelays>
@@ -159,15 +168,15 @@
     </Component>
 
     <Component name="CountdownTimer" file="src/components/CountdownTimer.jsx">
-      <Deadline>2026-03-31T23:59:59</Deadline>
-      <Format>DD:HH:MM:SS</Format>
-      <Style>4 ô vuông xanh #2D6A4F, chữ trắng, Montserrat ExtraBold</Style>
+      <Type>End of day - reset hàng ngày lúc 23:59:59</Type>
+      <Format>HH:MM:SS (không có Days vì chỉ đếm trong ngày)</Format>
+      <Style>3 ô vuông xanh #2D6A4F, chữ trắng, Montserrat ExtraBold</Style>
       <Update>setInterval mỗi 1000ms</Update>
     </Component>
 
     <Component name="Pricing" file="src/components/Pricing.jsx">
       <Headline>Đầu Tư Nhỏ, Bước Tiến Lớn</Headline>
-      <CountdownLabel>⏳ Ưu đãi Tháng 3 sẽ kết thúc sau:</CountdownLabel>
+      <CountdownLabel>⏳ Ưu đãi hôm nay sẽ kết thúc sau:</CountdownLabel>
       <Card tag="BEST SELLER" tagBG="#2D6A4F">
         <Title>Combo Chinh Phục Tiếng Đức</Title>
         <PriceOriginal strikethrough="#ef4444">200.000đ</PriceOriginal>
@@ -234,10 +243,12 @@
 
     <Component name="Footer" file="src/components/Footer.jsx">
       <BG>#1E293B</BG>
-      <Title>GiaBaoBooks</Title>
+      <Logo src="/Logo.png" link="https://giabaobooks.vn" />
       <Subtitle>Lan tỏa tri thức, phá vỡ rào cản ngôn ngữ.</Subtitle>
+      <BackHome href="https://giabaobooks.vn">← Về trang chủ GiaBaoBooks</BackHome>
       <CTA href="https://m.me/GiaBaoBooks" color="#F59E0B">Mua Ngay - Chỉ 149k</CTA>
       <Links>
+        <Link href="https://giabaobooks.vn">GiaBaoBooks.vn</Link>
         <Link href="https://m.me/GiaBaoBooks">Messenger</Link>
         <Link href="https://www.facebook.com/GiaBaoBooks">Facebook</Link>
       </Links>
@@ -288,13 +299,14 @@ import path from 'path'
 
 export default defineConfig({
   plugins: [react()],
-  base: '/5phut-page/',
+  base: '/',
   resolve: {
     alias: { '@': path.resolve(__dirname, './src') }
   },
   build: { outDir: 'dist', emptyOutDir: true }
 })
       ]]></Content>
+      <Note>base: '/' cho custom domain. Nếu bỏ custom domain → đổi lại '/5phut-page/'</Note>
     </File>
 
     <File name="tailwind.config.js">
@@ -318,10 +330,6 @@ export default {
   plugins: []
 }
       ]]></Content>
-    </File>
-
-    <File name="index.html">
-      <GoogleFonts>https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&amp;family=Inter:wght@400;500;600&amp;display=swap</GoogleFonts>
     </File>
 
     <File name="package.json - scripts">
@@ -349,11 +357,12 @@ export default {
   <DeployInstructions>
     <Step>1. Clone repo: git clone https://github.com/GiaBao72/5phut-page.git</Step>
     <Step>2. Cài dependencies: npm install</Step>
-    <Step>3. Dev local: npm run dev -- --port 3456 --host</Step>
+    <Step>3. Dev local: npm run dev</Step>
     <Step>4. Deploy: npm run deploy</Step>
     <Note>GitHub Token cần có quyền repo + workflow</Note>
     <Note>File .nojekyll phải có trong public/ để GitHub Pages không lọc _assets</Note>
     <Note>File 11-20.mp4 đã gitignore (132MB vượt giới hạn GitHub). Chỉ giữ demo-audio.mp3</Note>
+    <Note>public/CNAME = "5phuttiengduc.giabaobooks.vn" để GitHub Pages nhận custom domain</Note>
   </DeployInstructions>
 
 </ProjectSpec>

@@ -3,16 +3,21 @@ import { motion } from 'framer-motion'
 
 // Banner marquee chạy từ phải sang trái - hiệu ứng xe di chuyển
 function MarqueeBanner() {
-  const items = Array(10).fill('🚚 Miễn phí giao hàng toàn quốc')
+  const items = [
+    '🚚 Miễn phí giao hàng toàn quốc',
+    '🎧 Tặng kèm 200 file audio chuyên nghiệp',
+    '📖 Tặng kèm sổ tay từ vựng in màu',
+  ]
+  const repeated = Array(6).fill(items).flat()
   return (
     <div className="overflow-hidden bg-[#2D6A4F] py-2.5 w-full">
       <motion.div
         className="flex whitespace-nowrap"
         animate={{ x: ['0%', '-50%'] }}
-        transition={{ duration: 20, repeat: Infinity, ease: 'linear' }}
+        transition={{ duration: 45, repeat: Infinity, ease: 'linear' }}
         style={{ width: 'max-content' }}
       >
-        {[...items, ...items].map((item, i) => (
+        {[...repeated, ...repeated].map((item, i) => (
           <span key={i} className="text-white text-sm font-semibold shrink-0 px-8">
             {item}
             <span className="text-white/30 ml-8">•</span>
@@ -69,7 +74,7 @@ function Hero() {
             <motion.div initial={{ opacity: 0, x: 40 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.7, delay: 0.2, ease: 'easeOut' }} className="flex justify-center">
               <motion.div animate={{ y: [0, -15, 0] }} transition={{ duration: 3, repeat: Infinity, ease: 'easeInOut' }} className="relative">
                 <div className="absolute inset-0 bg-[#2D6A4F]/10 rounded-2xl blur-3xl scale-110" />
-                <img src="/5phut-page/bia-sach.jpg" alt="Sách 5 Phút Tiếng Đức" loading="lazy"
+                <img src="/bia-sach.jpg" alt="Sách 5 Phút Tiếng Đức" loading="lazy"
                   className="relative w-64 lg:w-80 xl:w-96 rounded-2xl shadow-2xl shadow-[#2D6A4F]/20 object-cover" />
                 <motion.div initial={{ scale: 0 }} animate={{ scale: 1 }} transition={{ delay: 0.8, type: 'spring' }}
                   className="absolute -top-4 -right-4 bg-[#F59E0B] text-white font-montserrat font-bold text-xs px-3 py-1.5 rounded-full shadow-lg">

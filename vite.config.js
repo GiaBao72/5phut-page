@@ -5,7 +5,7 @@ import path from 'path'
 // Cấu hình Vite cho dự án React - GitHub Pages
 export default defineConfig({
   plugins: [react()],
-  base: '/5phut-page/',
+  base: '/',
   resolve: {
     alias: {
       '@': path.resolve(__dirname, './src')
